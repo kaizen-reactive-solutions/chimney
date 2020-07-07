@@ -66,7 +66,7 @@ object CatsIorSpec extends TestSuite {
     }
 
     test("traverse should accumulate on the left side") - {
-      TransformerFIorSupport[NonEmptyChain[String]]
+      deriveTransformerFSupport[IorNec[String, +*]]
         .traverse(
           Iterator("bla", "ha", "hee", "bee"),
           (input: String) => Ior.both(NonEmptyChain(s"Accumulating $input"), input)
